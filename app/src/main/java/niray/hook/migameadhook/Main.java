@@ -20,7 +20,7 @@ public class Main implements IXposedHookLoadPackage {
             findAndHookMethod("com.xiaomi.gamecenter.sdk.ui.actlayout.ViewForLoginMessage", loadPackageParam.classLoader, "onCreate", Bundle.class, new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(final MethodHookParam param) throws Throwable {
-                    Log.e("hook MI", "afterHookedMethod In   " + loadPackageParam.packageName);
+                    Log.e("hook MI", "afterHookedMethod In  " + loadPackageParam.packageName);
                     XposedHelpers.callMethod(param.thisObject, "a", true, true);
                 }
             });
