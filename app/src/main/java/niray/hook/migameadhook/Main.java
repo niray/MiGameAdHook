@@ -1,6 +1,7 @@
 package niray.hook.migameadhook;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
@@ -39,6 +40,28 @@ public class Main implements IXposedHookLoadPackage {
                     activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 }
             });
+        }
+        //Hook HuaWei Music
+        if (loadPackageParam.packageName.contains("com.android.mediacenter")) {
+            Log.e("hook Music", "hookX Success In Music " + loadPackageParam.packageName);
+            findAndHookMethod("com.android.mediacenter.PageActivity", loadPackageParam.classLoader, "onCreate", Bundle.class, new XC_MethodHook() {
+                //                @Override
+//                protected Object replace(MethodHookParam methodHookParam) throws Throwable {
+//                    Log.e("hook Music", "afterHookedMethod In  " + loadPackageParam.packageName);
+//                    XposedBridge.invokeOriginalMethod(methodHookParam.method, methodHookParam.thisObject, methodHookParam.args);
+//                    return null;
+//                }
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                    super.afterHookedMethod(param);
+                    Activity activity = (Activity) param.thisObject;
+                    Intent it = new Intent();
+                    it.setClassName("com.android.mediacenter", "com.android.mediacenter.ui.local.AllSongsTabActivity");
+                    activity.startActivity(it);
+                    // activity.finish();
+                }
+            });
+
         }
     }
 

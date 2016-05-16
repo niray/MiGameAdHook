@@ -2,17 +2,20 @@
     package="niray.hook.migameadhook">
 
 
-    <application android:label="Mi Game Center AD">
+    <application android:label="Mi AD Clear">
+
         <meta-data
             android:name="xposedmodule"
             android:value="true" />
+
         <meta-data
             android:name="xposeddescription"
-            android:value="Auto Close the Mi Game Center Ad And WordScreen ActionBar" />
+            android:value="Auto Close the Game Ad And Huawei Music AD ,Show the wordScreen ActionBar" />
+
         <meta-data
             android:name="xposedminversion"
             android:value="30" />
-    </application>
 
+    </application>
 
 </manifest>
