@@ -8,7 +8,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="Auto Close the Mi Game Center Ad" />
+            android:value="Auto Close the Mi Game Center Ad And WordScreen ActionBar" />
         <meta-data
             android:name="xposedminversion"
             android:value="30" />
